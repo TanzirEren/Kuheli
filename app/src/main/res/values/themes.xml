@@ -79,6 +79,8 @@
     </style>
 
     <!-- View styles used by the layouts -->
+    <!-- Dotted names (K.Title...) inherit from "K" implicitly, so it must exist. -->
+    <style name="K" />
     <style name="K.Title">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/k_text</item>
