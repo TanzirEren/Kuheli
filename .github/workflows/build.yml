@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       GH_TOKEN: ${{ github.token }}
@@ -31,13 +31,19 @@ jobs:
         with:
           python-version: '3.11'
 
-      - uses: android-actions/setup-android@v3
-
+      # Use the Android SDK that is already on the runner. (android-actions/setup-android
+      # runs `sdkmanager tools`, which no longer exists, and crashes.)
       - name: Install SDK pieces
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" \
-                     "ndk;26.1.10909125" "cmake;3.22.1"
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+          SDKMANAGER="$(ls "$SDK"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | sort -V | tail -n1)"
+          [ -x "$SDKMANAGER" ] || SDKMANAGER="$(command -v sdkmanager)"
+          echo "Using $SDKMANAGER"
+          yes | "$SDKMANAGER" --sdk_root="$SDK" --licenses > /dev/null || true
+          "$SDKMANAGER" --sdk_root="$SDK" "platform-tools" "platforms;android-34" \
+                        "build-tools;34.0.0" "ndk;26.1.10909125" "cmake;3.22.1"
 
       - uses: gradle/actions/setup-gradle@v4
         with:
