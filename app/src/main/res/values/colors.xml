@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="k_bg">#F5F5F8</color>
+    <color name="k_surface">#FFFFFF</color>
+    <color name="k_surface2">#ECECF2</color>
+    <color name="k_text">#1B1C23</color>
+    <color name="k_muted">#6E7285</color>
+    <color name="k_accent">#5B4BDB</color>
+    <color name="k_on_accent">#FFFFFF</color>
+    <color name="k_line">#DADAE4</color>
+    <color name="k_danger">#C23B3B</color>
+    <color name="k_code_bg">#E9E9F1</color>
+    <color name="k_icon_bg">#0E0F14</color>
+</resources>

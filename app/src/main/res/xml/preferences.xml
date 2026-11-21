@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Appearance">
+        <ListPreference
+            android:defaultValue="dark"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_values"
+            android:key="theme"
+            android:title="Theme"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="12"
+            android:key="text_size"
+            android:title="Chat text size (sp)"
+            android:dialogMessage="9 to 20. The default is 12."
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="show_time"
+            android:summary="Show the time under each message"
+            android:title="Message times" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="haptics"
+            android:summary="A light tap when you send"
+            android:title="Haptic feedback" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="keep_awake"
+            android:summary="Stop the screen turning off while a reply is being written"
+            android:title="Keep screen on while working" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Chat">
+        <EditTextPreference
+            android:key="system_prompt"
+            android:title="System prompt"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="0.7"
+            android:key="temperature"
+            android:title="Temperature"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:dialogMessage="0 lets the provider decide."
+            android:key="max_tokens"
+            android:title="Maximum reply tokens"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="stream"
+            android:summary="Show the reply as it is written"
+            android:title="Stream replies" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="send_on_enter"
+            android:summary="Enter sends, Shift+Enter adds a new line (hardware keyboards)"
+            android:title="Send with Enter" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="auto_title"
+            android:summary="Name a new chat after your first message"
+            android:title="Automatic chat titles" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="fallback"
+            android:summary="If a provider fails before replying, try your other providers"
+            android:title="Fallback providers" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="REA tools">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="tools_enabled"
+            android:summary="Let the model call REA tools through the bridge"
+            android:title="Enable tools" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="require_approval"
+            android:summary="Ask before every tool call"
+            android:title="Ask before running tools" />
+        <EditTextPreference
+            android:defaultValue="http://127.0.0.1:8765"
+            android:key="bridge_url"
+            android:title="Bridge address"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="auto_start_node"
+            android:summary="Start the embedded Node.js runtime when the app opens (if this build has it)"
+            android:title="Start bridge automatically" />
+        <EditTextPreference
+            android:defaultValue="npx"
+            android:key="node_cmd"
+            android:title="REA launch command"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="-y rea-agents@latest mcp"
+            android:key="node_args"
+            android:title="REA launch arguments"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="node_env"
+            android:dialogMessage="One KEY=value per line. These are passed to REA."
+            android:title="REA environment"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="tool_filter"
+            android:dialogMessage="Comma separated words. Only tools whose name contains one of them are offered to the model. Empty offers all."
+            android:title="Tool filter"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="64"
+            android:key="max_tools"
+            android:title="Most tools sent to the model"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="8"
+            android:key="max_steps"
+            android:title="Most tool steps per reply"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="20000"
+            android:key="tool_result_limit"
+            android:title="Longest tool result (characters)"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Security">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="app_lock"
+            android:summary="Ask for your phone's screen lock when the app opens"
+            android:title="App lock" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="secure_screen"
+            android:summary="Hide the app from screenshots and the recent apps view. Takes effect on the next screen you open."
+            android:title="Block screenshots" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Data">
+        <Preference
+            android:key="backup_export"
+            android:summary="Chats, skills and provider settings. API keys are not included."
+            android:title="Back up" />
+        <Preference
+            android:key="backup_import"
+            android:summary="Merge a backup file into this device"
+            android:title="Restore" />
+        <Preference
+            android:key="clear_history"
+            android:title="Delete all chats" />
+        <Preference
+            android:key="wipe_all"
+            android:summary="Chats, skills, providers and saved keys"
+            android:title="Erase everything" />
+    </PreferenceCategory>
+</PreferenceScreen>

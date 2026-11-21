@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text styles: everything is small and slim by design. -->
+    <style name="TA.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="TA.Small" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="TA.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="TA.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="TA.ToolbarTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.Kuheli.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TA.ToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/TA.Small</item>
+        <item name="android:background">@color/k_bg</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="MaterialAlertDialog.Kuheli.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="MaterialAlertDialog.Kuheli.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="ThemeOverlay.Kuheli.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.Kuheli.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.Kuheli.Body</item>
+        <item name="colorSurface">@color/k_surface</item>
+    </style>
+
+    <style name="Theme.Kuheli" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/k_accent</item>
+        <item name="colorOnPrimary">@color/k_on_accent</item>
+        <item name="colorSecondary">@color/k_accent</item>
+        <item name="colorSurface">@color/k_surface</item>
+        <item name="colorOnSurface">@color/k_text</item>
+        <item name="colorSurfaceVariant">@color/k_surface2</item>
+        <item name="colorOnSurfaceVariant">@color/k_muted</item>
+        <item name="colorOutline">@color/k_line</item>
+        <item name="android:colorBackground">@color/k_bg</item>
+        <item name="android:windowBackground">@color/k_bg</item>
+        <item name="android:statusBarColor">@color/k_bg</item>
+        <item name="android:navigationBarColor">@color/k_bg</item>
+        <item name="android:windowLightStatusBar">@bool/light_bars</item>
+        <item name="android:textColorPrimary">@color/k_text</item>
+        <item name="android:textColorSecondary">@color/k_muted</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+
+        <item name="textAppearanceBodyLarge">@style/TA.Body</item>
+        <item name="textAppearanceBodyMedium">@style/TA.Body</item>
+        <item name="textAppearanceBodySmall">@style/TA.Small</item>
+        <item name="textAppearanceTitleLarge">@style/TA.Title</item>
+        <item name="textAppearanceTitleMedium">@style/TA.Title</item>
+        <item name="textAppearanceTitleSmall">@style/TA.Title</item>
+        <item name="textAppearanceLabelLarge">@style/TA.Label</item>
+        <item name="textAppearanceLabelMedium">@style/TA.Label</item>
+        <item name="textAppearanceLabelSmall">@style/TA.Small</item>
+
+        <item name="android:textAppearanceListItem">@style/TA.Title</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TA.Small</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Kuheli.Dialog</item>
+    </style>
+
+    <!-- View styles used by the layouts -->
+    <style name="K.Title">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/k_text</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="K.Body">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/k_text</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="K.Small">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/k_muted</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="K.Mono">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/k_muted</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+    <style name="K.Input">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/k_text</item>
+        <item name="android:textColorHint">@color/k_muted</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <style name="K.Icon">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:tint">?attr/colorControlNormal</item>
+    </style>
+</resources>

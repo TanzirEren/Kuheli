@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kuheli</string>
+    <string name="hint_message">Message Kuheli</string>
+    <string name="hint_search_chats">Search chats</string>
+    <string name="hint_search_tools">Filter tools</string>
+    <string name="nav_tagline">Chat. Skills. Tools.</string>
+</resources>

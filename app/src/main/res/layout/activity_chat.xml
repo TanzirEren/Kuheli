@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.Kuheli.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="12dp"
+                android:contentDescription="Scroll to the latest message"
+                android:src="@drawable/ic_down"
+                android:visibility="gone"
+                app:backgroundTint="@color/k_surface2"
+                app:elevation="1dp"
+                app:fabSize="mini"
+                app:tint="@color/k_text" />
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/slash_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/slash_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp" />
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/attach_chip"
+            style="@style/K.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/k_surface"
+            android:paddingStart="14dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="6dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/K.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="2dp"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="8dp">
+
+            <ImageButton
+                android:id="@+id/btn_attach"
+                style="@style/K.Icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="Attach a text file"
+                android:src="@drawable/ic_attach" />
+
+            <EditText
+                android:id="@+id/input"
+                style="@style/K.Input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_message"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="6"
+                android:minHeight="40dp" />
+
+            <ImageButton
+                android:id="@+id/btn_send"
+                style="@style/K.Icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="Send"
+                android:src="@drawable/ic_send" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/k_surface"
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/k_muted"
+        app:itemTextAppearance="@style/TA.Title"
+        app:itemTextColor="@color/k_text"
+        app:menu="@menu/nav_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>
